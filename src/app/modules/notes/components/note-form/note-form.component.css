@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  width: 40%;
+  margin: auto;
+}
+
+.form {
+  margin-top: 8px;
+  flex: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  margin: 16px;
+}

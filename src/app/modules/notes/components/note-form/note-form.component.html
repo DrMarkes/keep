@@ -1,18 +1,26 @@
-<mat-card>
-  <form #noteForm="ngForm">
-  <mat-card-title>
-    <mat-form-field [floatPlaceholder]="'never'">
-      <input matInput placeholder="Title" [(ngModel)]="note.title" name="title" #title="ngModel"/>
-    </mat-form-field>
-  </mat-card-title>
-    <mat-card-content>
-      <mat-form-field>
-        <textarea matInput placeholder="Content" [(ngModel)]="note.content" name="content" #content="ngModel">
+<div class="container">
+    <mat-card class="form">
+      <form #noteForm="ngForm">
+        <mat-card-title>
+          <mat-form-field [floatPlaceholder]="'never'">
+            <input matInput  placeholder="Title"
+                   [(ngModel)]="note.title" name="title" #title="ngModel"/>
+          </mat-form-field>
+        </mat-card-title>
+        <mat-card-content>
+          <mat-form-field>
+        <textarea matInput matTextareaAutosize="resizeToFitContent"
+                  [matAutosizeMinRows]="10"
+                  placeholder="Content" [(ngModel)]="note.content"
+                  name="content" #content="ngModel" required>
         </textarea>
-      </mat-form-field>
-    </mat-card-content>
-  </form>
-  <mat-card-footer>
-    <button mat-button color="primary" (click)="addNote(note)">Сохранить</button>
-  </mat-card-footer>
-</mat-card>
+          </mat-form-field>
+        </mat-card-content>
+      </form>
+      <mat-card-footer>
+        <button mat-raised-button [disabled]="!content.valid"
+                color="primary" (click)="addNote(note)">Сохранить</button>
+        <button mat-raised-button (click)="cancel()">Отмена</button>
+      </mat-card-footer>
+    </mat-card>
+</div>

@@ -1,16 +1,15 @@
-import {Injectable} from '@angular/core';
-import {Actions, Effect} from '@ngrx/effects';
-import {Observable} from 'rxjs/Observable';
-import {AngularFirestore} from 'angularfire2/firestore';
+import { Injectable } from '@angular/core';
+import { Actions, Effect } from '@ngrx/effects';
+import { Observable } from 'rxjs/Observable';
+import { AngularFirestore } from 'angularfire2/firestore';
 import 'rxjs/add/operator/switchMap';
-import {Action} from '@ngrx/store';
+import { Action } from '@ngrx/store';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/observable/of';
 
 import * as notesCollection from '../actions/notes-collection.actions';
-import {Note} from '../models/note';
-import "rxjs/add/operator/mergeMap";
-import "rxjs/add/observable/fromPromise";
-import {AddNote} from "../actions/notes-collection.actions";
+import { Note } from '../models/note';
 
 @Injectable()
 export class NotesCollectionEffects {

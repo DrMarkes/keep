@@ -1,6 +1,6 @@
-<div *ngIf="notes | async as notes">
-  <app-note *ngFor="let note of notes" [note]="note"></app-note>
+<div class="container" *ngIf="notes | async as notes">
+  <app-note class="note" *ngFor="let note of notes" [note]="note"></app-note>
 </div>
-<button mat-fab (click)="addNote()">
+<button class="add-button" mat-fab (click)="addNote()">
   <mat-icon aria-label="icon-button with an add icon">add</mat-icon>
 </button>

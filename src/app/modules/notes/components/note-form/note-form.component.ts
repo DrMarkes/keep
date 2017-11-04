@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Location } from '@angular/common';
 
 import { Note } from '../../models/note';
 import * as fromNotes from '../../reducers/index';
 import * as notesCollectionActions from '../../actions/notes-collection.actions';
-import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-note-form',
@@ -15,7 +15,7 @@ export class NoteFormComponent implements OnInit {
   note: Note;
 
   constructor(private store: Store<fromNotes.State>,
-              private router: Router) {
+              private location: Location) {
     this.note = new Note();
   }
 
@@ -25,7 +25,10 @@ export class NoteFormComponent implements OnInit {
   addNote(note: Note) {
     this.note.timestamp = Date.now();
     this.store.dispatch(new notesCollectionActions.AddNote(note));
-    this.router.navigateByUrl('notes');
+    this.location.back();
   }
 
+  cancel() {
+    this.location.back();
+  }
 }
