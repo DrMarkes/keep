@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', component: AppComponent, pathMatch: 'full' },
+  { path: '', redirectTo: '/notes', pathMatch: 'full' },
   {
     path: 'notes',
     loadChildren: './modules/notes/notes.module#NotesModule',

@@ -1,10 +1,6 @@
-interface INote {
+export class Note {
   title?: string;
   content?: string;
-  id: string;
-}
-
-export class Note implements INote {
-
-  constructor(public id: string) {}
+  id?: string;
+  timestamp: number;
 }

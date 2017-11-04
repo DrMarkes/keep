@@ -6,6 +6,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { EffectsModule } from '@ngrx/effects';
+import { FormsModule } from '@angular/forms';
+import 'hammerjs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,7 @@ import { NotesModule } from './modules/notes/notes.module';
 import { reducers } from './reducers/index';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FIREBASE_CONFIG } from './config/firebase';
+import { AppMaterialDesignModule } from './app-material-design.module';
 
 @NgModule({
   declarations: [
@@ -21,8 +24,10 @@ import { FIREBASE_CONFIG } from './config/firebase';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    AppMaterialDesignModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     NotesModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
